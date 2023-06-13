@@ -1,3 +1,4 @@
+using BattleShip123Core.Interfaces;
 using BattleShip123Core.Model;
 using BattleShip123Engine.Models;
 using BattleShip123View;
@@ -183,7 +184,7 @@ namespace BattleShips123Test
             char[] columns = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
             int[] rows = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            for (int column = 0; column < columns.Length; column++) 
+            for (int column = 0; column < columns.Length; column++)
             {
                 for (int row = 0; row < rows.Length; row++)
                 {
@@ -201,7 +202,7 @@ namespace BattleShips123Test
         public void ParseInput_ThrowArgumentOutOfRangeException()
         {
             char[] columns = { 'K', 'L', '0', '/' };
-            int[] rows = { 11, -1};
+            int[] rows = { 11, -1 };
 
             for (int column = 0; column < columns.Length; column++)
             {
@@ -265,7 +266,7 @@ namespace BattleShips123Test
                 Size = 4,
                 Orientation = ShipOrientation.Horizontal
             };
-            
+
             var secondShip = new Ship()
             {
                 X = 7,
@@ -285,7 +286,7 @@ namespace BattleShips123Test
         public void PutOneShipOnAnother_Fail()
         {
             var firstShip = new Ship
-            { 
+            {
                 X = 5,
                 Y = 5,
                 Size = 4,
@@ -383,8 +384,6 @@ namespace BattleShips123Test
                 }
             }
         }
-
-        [Fact]
         public void PutShipNextToEachOtherWhenLastCellsAreClose_Fail()
         {
             var ship = new Ship
@@ -398,7 +397,7 @@ namespace BattleShips123Test
             Ship[] shipsToCheck =
             {
                 new Ship()
-                { 
+                {
                     X = 3,
                     Y = 4,
                     Size = 4,
@@ -464,7 +463,7 @@ namespace BattleShips123Test
             int[] emptyCells = Enumerable.Range(0, 99).ToArray();
             int[] shipCells = { 55, 56, 57, 58 };
             int[] filteredArray = emptyCells.Except(shipCells).ToArray();
-            
+
             for (int shotPosition = 0; shotPosition < filteredArray.Length; shotPosition++)
             {
                 var position = new

@@ -1,9 +1,10 @@
-﻿using BattleShip123Core.Model;
+﻿using BattleShip123Core.Interfaces;
+using BattleShip123Core.Model;
 
 namespace BattleShip123View
 {
     public class View : IView
-    {        
+    {
         public View()
         {
         }
@@ -17,7 +18,7 @@ namespace BattleShip123View
             Console.Clear();
             Console.WriteLine($"           {player.Name}        ");
             Console.WriteLine("    A  B  C  D  E  F  G  H  I  J");
-            
+
             for (int y = 0; y < Grid.Size; y++)
             {
                 string rowNumber = (y + 1).ToString("00");

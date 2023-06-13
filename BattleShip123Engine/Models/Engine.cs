@@ -1,6 +1,5 @@
 ﻿using BattleShip123Core.Interfaces;
 using BattleShip123Core.Model;
-using BattleShip123View;
 using static BattleShip123Core.Interfaces.IEngine;
 
 namespace BattleShip123Engine.Models
@@ -26,6 +25,8 @@ namespace BattleShip123Engine.Models
         /// </summary>
         public void NewGame()
         {
+            playerOne.Reset();
+            playerTwo.Reset();
             PlaceShips(playerOne);
             PlaceShips(playerTwo);
         }
@@ -38,7 +39,6 @@ namespace BattleShip123Engine.Models
             try
             {
                 Player current = playerOne;
-                view.DrawShips(playerOne);
                 move = true;
                 const int noShipsLeft = 0;
                 do
@@ -70,6 +70,7 @@ namespace BattleShip123Engine.Models
                     }
                 }
                 while (playerOne.sumOfShipCells != noShipsLeft && playerTwo.sumOfShipCells != noShipsLeft);
+
                 var winner = playerOne.sumOfShipCells == noShipsLeft ? playerTwo.Name : playerOne.Name;
                 Console.WriteLine($"Congratulations {winner} is a winner!");
             }
@@ -188,7 +189,7 @@ namespace BattleShip123Engine.Models
                 {
                     throw new ArgumentOutOfRangeException($"X coordinate should be in range from 1 to {Grid.Size}");
                 }
-                if (x < 'a' && x >= Grid.Size)
+                if (x < 0 && x >= Grid.Size)
                 {
                     throw new ArgumentOutOfRangeException($"Y coordinate should be in range from A to {yRange}");
                 }

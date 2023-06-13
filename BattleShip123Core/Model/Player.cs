@@ -9,7 +9,7 @@
         }
 
         public string Name { get; set; }
-        public int[] ships { get; set; } = { 3, 3, 3, 4, 4 };
+        public int[] ships { get; set; } = { 5, 4, 4 };
         public Grid Grid { get; set; } = new Grid();
         public int sumOfShipCells { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿using BattleShip123Core.Model;
 
-namespace BattleShip123View
+namespace BattleShip123Core.Interfaces
 {
     public interface IView
     {
